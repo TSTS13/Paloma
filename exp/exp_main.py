@@ -1,7 +1,7 @@
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
 from models import Paloma
-from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
+from utils.tools import EarlyStopping, adjust_learning_rate, visual
 from utils.metrics import metric
 
 import numpy as np
@@ -112,7 +112,6 @@ class Exp_Main(Exp_Basic):
                 else:
                     if any(substr in self.args.model for substr in {'Paloma'}):
                         outputs = self.model(batch_x, batch_cycle)
-
                     else:
                         if self.args.output_attention:
                             outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)[0]
@@ -124,11 +123,9 @@ class Exp_Main(Exp_Basic):
 
                 pred = outputs.detach().cpu()
                 true = batch_y.detach().cpu()
-
-
                 loss = criterion(pred, true)
-
                 total_loss.append(loss)
+
         total_loss = np.average(total_loss)
         self.model.train()
         return total_loss
@@ -149,11 +146,6 @@ class Exp_Main(Exp_Basic):
 
         model_optim = self._select_optimizer()
         criterion = WeightedLoss(self.args.lossfun_alpha, self.args.loss_mode)
-
-        para = sum([np.prod(list(p.size())) for p in self.model.parameters()])
-        print('Model {} : params: {}'.format(self.model._get_name(), para))
-
-
 
         if self.args.use_amp:
             scaler = torch.cuda.amp.GradScaler()
@@ -311,21 +303,14 @@ class Exp_Main(Exp_Basic):
                 outputs = outputs.detach().cpu().numpy()
                 batch_y = batch_y.detach().cpu().numpy()
 
-
-                pred = outputs  # outputs.detach().cpu().numpy()  # .squeeze()
-                true = batch_y  # batch_y.detach().cpu().numpy()  # .squeeze()
+                pred = outputs
+                true = batch_y
 
                 preds.append(pred)
                 trues.append(true)
-                # inputx.append(batch_x.detach().cpu().numpy())
 
-
-        if self.args.test_flop:
-            test_params_flop(self.model, (batch_x.shape[1], batch_x.shape[2]))
-            exit()
         preds = np.concatenate(preds, axis=0)
         trues = np.concatenate(trues, axis=0)
-        # inputx = np.concatenate(inputx, axis=0)
 
         preds = preds.reshape(-1, preds.shape[-2], preds.shape[-1])
         trues = trues.reshape(-1, trues.shape[-2], trues.shape[-1])

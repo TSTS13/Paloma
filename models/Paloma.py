@@ -60,7 +60,6 @@ class Model(nn.Module):
         self.use_revin = configs.use_revin
         self.individual = configs.individual
 
-
         self.Q = nn.Parameter(torch.randn(self.cycle_len, self.enc_in), requires_grad=True)
         self.phase = nn.Parameter(torch.randn(self.cycle_len, self.enc_in), requires_grad=True)
         self.amplitude = nn.Parameter(torch.randn(self.cycle_len, self.enc_in), requires_grad=True)

@@ -31,7 +31,7 @@ parser.add_argument('--seq_len', type=int, default=96, help='input sequence leng
 parser.add_argument('--label_len', type=int, default=0, help='start token length')  #fixed
 parser.add_argument('--pred_len', type=int, default=96, help='prediction sequence length')
 
-# TQNet & CycleNet
+# CycleNet
 parser.add_argument('--cycle', type=int, default=24, help='cycle length')
 parser.add_argument('--model_type', type=str, default='mlp', help='model type, options: [linear, mlp]')
 parser.add_argument('--use_revin', type=int, default=1, help='1: use revin or 0: no revin')
