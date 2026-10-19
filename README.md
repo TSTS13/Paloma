@@ -2,7 +2,7 @@
 
 If you find this repository useful, please consider giving it a ⭐ Star to show your support. Thank you!
 
-🚩 News (2026.09) Paloma has been accepted as a Spotlight poster in NeurIPS 2026.
+🚩 News (2026.09) Paloma has been accepted as a Spotlight poster in NeurIPS 2026. See you in Sydney!
 
 ##  🚀 Getting Started
 
@@ -21,7 +21,7 @@ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=
 pip install -r requirements.txt
 ```
 
-### Data preparation
+### Data Preparation
 
 All datasets have been preprocessed and are ready for direct use. They can be downloaded from the following links:
 
@@ -30,14 +30,10 @@ All datasets have been preprocessed and are ready for direct use. They can be do
 - Solar-Energy: https://github.com/laiguokun/LSTNet
 
 
-### Training scripts
+### Training Scripts
 The experimental results can be reproduced using the following scripts:
 
 ```bash
 bash ./scripts/ETTm1.sh
 bash ./scripts/ETTh1.sh
 ```
-
-
-
-
