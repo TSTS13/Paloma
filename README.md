@@ -21,6 +21,15 @@ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=
 pip install -r requirements.txt
 ```
 
+### Data preparation
+
+All datasets have been preprocessed and are ready for direct use. They can be downloaded from the following links:
+
+- ETT, Electricity, Traffic, Weather: https://drive.google.com/drive/folders/1vE0ONyqPlym2JaaAoEe0XNDR8FS_d322
+- PEMS: https://github.com/cure-lab/SCINet?tab=readme-ov-file
+- Solar-Energy: https://github.com/laiguokun/LSTNet
+
+
 ### Training scripts
 The experimental results can be reproduced using the following scripts:
 
