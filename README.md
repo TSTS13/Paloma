@@ -2,7 +2,7 @@
 
 If you find this repository useful, please consider giving it a ⭐ Star to show your support. Thank you!
 
-🚩 News (2026.09) Paloma has been accepted as a Spotlight poster in NeurIPS 2026. See you in Sydney!
+🚩 News (2026.09) Paloma ([arXiv](https://arxiv.org/abs/2610.25392)) has been accepted as a Spotlight poster in NeurIPS 2026. See you in Sydney!
 
 ##  🚀 Getting Started
 
